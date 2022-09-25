@@ -1,7 +1,25 @@
-{{page-title "Myemberapp"}}
+{{page-title "Windows Service Web App"}}
 
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
 
+<div class="center-container">
+    <h1>Web Application For Listing Files and Folders</h1>
+    
+    <button type="button"> 
+        <LinkTo @route="search"> Search Files</LinkTo>
+    </button>
+
+    <button type="button">
+        <LinkTo @route="create"> Show Recently Created Files</LinkTo>
+    </button>
+
+    <button type="button">
+        <LinkTo @route="modify"> Show Recently Modified Files</LinkTo>
+    </button>
+
+    <button type="button">
+        <LinkTo @route="delete"> Show Recently Deleted Files</LinkTo>
+    </button>
+    
+</div>
+  
 {{outlet}}

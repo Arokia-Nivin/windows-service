@@ -1,0 +1,26 @@
+
+<ul style="list-style:none;">
+    {{#each @tree as |child|}}
+        {{#if child.isExpanded}}
+        <li class={{if child.lastchild "list-style-disc"}}> 
+            {{#unless child.lastchild}}
+                {{#if child.childrenHidden}}
+                <button class="toggle-button" type="button" {{on "click" (fn this.expandCollapse child.name) }}>&gt;</button>
+                {{else}}
+                <button class="toggle-button" type="button" {{on "click" (fn this.expandCollapse child.name) }} >&or;</button>
+                {{/if}}
+            {{/unless}}
+
+            <span class="names" >{{child.name}}</span>
+            {{!-- recursive-call to same component --}}
+            <TreeComponent @tree={{child.children}} @updateModel={{@updateModel}} />
+        </li> 
+        {{/if}}
+    {{/each}}
+</ul>
+  
+
+
+
+
+{{yield}}

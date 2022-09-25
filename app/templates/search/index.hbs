@@ -1,0 +1,16 @@
+<Output @tree={{this.model.tree}} 
+        @updateTreeInModel={{this.updateTreeInModel}} 
+        @table={{this.model.table}}
+        @updateTableInModel={{this.updateTableInModel}}
+/>
+
+<div class="center-container">
+    <button type="button">
+        <LinkTo @route="search.stats">View Stats</LinkTo>
+    </button>
+
+    <button {{on "click" this.refreshData}}>Refresh</button>
+</div>
+
+    
+{{outlet}}

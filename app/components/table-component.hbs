@@ -1,0 +1,22 @@
+<table id="file-explorer">
+    <thead>
+        <th>S No</th>
+        <th {{on "load" this.sortByName }} {{on "click" this.sortByName }}>Name {{#if this.isAscendingForName}}&and;{{else}} &or; {{/if}}</th>
+        <th {{on "click" this.sortByCreatedTime }}>Created Time {{#if this.isAscendingForCreatedTime}}&and;{{else}} &or; {{/if}}</th>
+        <th {{on "click" this.sortByModifiedTime }}>Modified Time {{#if this.isAscendingForModifiedTime}}&and;{{else}} &or; {{/if}}</th>
+    </thead>
+
+    <tbody>
+       {{#each @table as |path index|}}
+            <tr>
+                {{!-- calling helper function add for SI NO --}}
+                <td>{{increment index}}</td>
+                <td>{{path.name}}</td>
+                <td>{{path.created_time}}</td>
+                <td>{{path.modified_time}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+{{yield}}

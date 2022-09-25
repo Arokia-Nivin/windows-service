@@ -1,0 +1,20 @@
+<table id="file-explorer">
+    <thead>
+        <th>S No</th>
+        <th {{on "load" this.sortByName }} {{on "click" this.sortByName }}>Name {{#if this.isAscendingForName}}&and;{{else}} &or; {{/if}}</th>
+        <th {{on "click" this.sortByDeletedTime }}>Deleted Time {{#if this.isAscendingForDeletedTime}}&and;{{else}} &or; {{/if}}</th>
+    </thead>
+
+    <tbody>
+       {{#each @table as |path index|}}
+            <tr>
+                {{!-- calling helper function add for SI NO --}}
+                <td>{{increment index}}</td>
+                <td>{{path.name}}</td>
+                <td>{{path.deleted_time}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+{{yield}}

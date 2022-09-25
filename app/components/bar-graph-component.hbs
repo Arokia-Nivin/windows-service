@@ -1,0 +1,19 @@
+<table class="graph">
+	<caption>{{@caption}}</caption>
+	<thead>
+		<tr>
+			<th>Time</th>
+			<th>Number of files</th>
+		</tr>
+	</thead>
+	<tbody>
+		 {{#each (barchartutil @values) as |v|}}
+            <tr style="{{v.height}}">
+				<th>{{v.date}}</th>
+				<td><span>{{v.numberOfFiles}}</span></td>
+			</tr>
+        {{/each}}
+	</tbody>
+</table>
+
+{{yield}}

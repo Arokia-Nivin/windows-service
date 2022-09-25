@@ -1,0 +1,23 @@
+<button id="togglemodebutton" type="button" {{on "click" this.toggleShowTree}}>
+    {{#if this.showTree}}
+        Show Table Format
+    {{else}}
+        Show Tree Format
+    {{/if}}
+</button>
+
+{{#if this.showTree}}
+<div id="tree-structure">
+    <TreeComponent @tree={{@tree}} @updateModel={{@updateTreeInModel}}/>
+</div>
+{{else}}    
+<div id="table-structure">
+    {{#if @isDeleteTable}}
+    <DeletetableComponent @table={{@table}} @updateModel={{@updateTableInModel}}/> 
+    {{else}}
+    <TableComponent @table={{@table}} @updateModel={{@updateTableInModel}}/> 
+    {{/if}}
+</div>    
+{{/if}}
+
+{{yield}}
